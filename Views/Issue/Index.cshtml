@@ -1,0 +1,38 @@
+﻿@model IEnumerable<Issue> 
+@{
+    ViewData["Title"] = "Issues";
+}
+
+<h1 class="text-center">@ViewData["Title"]</h1>
+
+<div class="text-center">
+    <form method="post">
+        <button class="btn btn-primary" asp-controller="Issue" asp-action="Add">New Issue</button>
+    </form>
+</div>
+
+<table class="table table-bordered" style="width:100%">
+    <thead>
+        <tr>
+            <th width="70%">
+                Issue
+            </th>
+            <th width="30%">
+                Date
+            </th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach(var obj in Model)
+        {
+            <tr>
+                <td>
+                   @obj.Title
+                </td>
+                <td>
+                    @obj.CreatedTime
+                </td>
+            </tr>
+        }
+    </tbody>
+</table>
